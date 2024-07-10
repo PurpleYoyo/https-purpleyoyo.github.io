@@ -42,11 +42,11 @@ $(".max-level").bind("keyup change", function () {
 });
 
 // auto-calc stats and current HP on change
-$("#autolevel-select").change(function () {
-	$("#p1").find(".level").val($("#autolevel-select").val());
-	$("#p2").find(".level").val($("#autolevel-select").val());
-	$(".level").change();
-});
+//$("#autolevel-select").change(function () {
+//	$("#p1").find(".level").val($("#autolevel-select").val());
+//	$("#p2").find(".level").val($("#autolevel-select").val());
+//	$(".level").change();
+//});
 
 $(".level").bind("keyup change", function () {
 	var poke = $(this).closest(".poke-info");
