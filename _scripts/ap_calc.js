@@ -1126,114 +1126,17 @@ var gen, pokedex, setdex, typeChart, moves, abilities, items, STATS, calculateAl
 
 $(".gen").change(function () {
 	gen = ~~$(this).val();
-	switch (gen) {
-	case 5:
-		pokedex = POKEDEX_BW;
-		setdex = SETDEX_GEN5;
-		typeChart = TYPE_CHART_GSC;
-		moves = movesForGen(5);
-		items = itemsForGen(5);
-		abilities = abilitiesForGen(5);
-		STATS = STATS_GSC;
-		calculateAllMoves = CALCULATE_ALL_MOVES_BW;
-		calcHP = CALC_HP_ADV;
-		calcStat = CALC_STAT_ADV;
-		localStorage.setItem("selectedGen", 5);
-		break;
-	case 6:
-		pokedex = POKEDEX_XY;
-		setdex = SETDEX_GEN6;
-		typeChart = TYPE_CHART_XY;
-		moves = movesForGen(6);
-		items = itemsForGen(6);
-		abilities = abilitiesForGen(6);
-		STATS = STATS_GSC;
-		calculateAllMoves = CALCULATE_ALL_MOVES_BW;
-		calcHP = CALC_HP_ADV;
-		calcStat = CALC_STAT_ADV;
-		localStorage.setItem("selectedGen", 6);
-		break;
-	case 7:
-		pokedex = POKEDEX_SM;
-		setdex = SETDEX_GEN7;
-		typeChart = TYPE_CHART_XY;
-		moves = movesForGen(7);
-		items = itemsForGen(7);
-		abilities = abilitiesForGen(7);
-		STATS = STATS_GSC;
-		calculateAllMoves = CALCULATE_ALL_MOVES_BW;
-		calcHP = CALC_HP_ADV;
-		calcStat = CALC_STAT_ADV;
-		localStorage.setItem("selectedGen", 7);
-		break;
-	case 8:
-		pokedex = POKEDEX_SS;
-		setdex = SETDEX_GEN8;
-		typeChart = TYPE_CHART_XY;
-		moves = movesForGen(8);
-		items = itemsForGen(8);
-		abilities = abilitiesForGen(8);
-		STATS = STATS_GSC;
-		calculateAllMoves = CALCULATE_ALL_MOVES_BW;
-		calcHP = CALC_HP_ADV;
-		calcStat = CALC_STAT_ADV;
-		localStorage.setItem("selectedGen", 8);
-		break;
-	case 20:
-		pokedex = POKEDEX_SM;
-		setdex = SETDEX_FACTORY;
-		typeChart = TYPE_CHART_XY;
-		moves = movesForGen(7);
-		items = itemsForGen(7);
-		abilities = abilitiesForGen(7);
-		STATS = STATS_GSC;
-		calculateAllMoves = CALCULATE_ALL_MOVES_BW;
-		calcHP = CALC_HP_ADV;
-		calcStat = CALC_STAT_ADV;
-		localStorage.setItem("selectedGen", 20);
-		break;
-	case 21:
-		pokedex = POKEDEX_SS;
-		// Very hacky way of restricting dex to LC stuff only
-		var dex = Dex.forGen(8);
-		var k = Object.keys(pokedex);
-		var n = {};
-		for (var i = 0; i < k.length; i++) {
-			var mon = dex.species.get(k[i]);
-			if ((mon.tier === "LC" && mon.id !== "ponyta") || ["rufflet", "gothita", "vullaby", "gastly", "drifloon", "woobat", "scraggy", "zigzagoon"].includes(mon.id)) {
-				n[k[i]] = pokedex[k[i]];
-			}
-		}
-		pokedex = n;
-
-		setdex = SETDEX_LCDOUBLES;
-		typeChart = TYPE_CHART_XY;
-		moves = movesForGen(8);
-		items = itemsForGen(8);
-		abilities = abilitiesForGen(8);
-		STATS = STATS_GSC;
-		calculateAllMoves = CALCULATE_ALL_MOVES_BW;
-		calcHP = CALC_HP_ADV;
-		calcStat = CALC_STAT_ADV;
-		localStorage.setItem("selectedGen", 21);
-		$("#doubles").prop("checked", true);
-		$("#autolevel-select").val(5);
-		$("#autolevel-select").change();
-		$("#doubles").change();
-		break;
-	case 22:
-		pokedex = POKEDEX_LG;
-		setdex = SETDEX_LG;
-		typeChart = TYPE_CHART_XY;
-		moves = movesForGen(7, true);
-		items = itemsForGen(7);
-		abilities = [];
-		STATS = STATS_GSC;
-		calculateAllMoves = CALCULATE_ALL_MOVES_LG;
-		calcHP = CALC_HP_LG;
-		calcStat = CALC_STAT_LG;
-		localStorage.setItem("selectedGen", 22);
-	}
+	pokedex = POKEDEX_LG;
+	setdex = SETDEX_LG;
+	typeChart = TYPE_CHART_XY;
+	moves = movesForGen(7, true);
+	items = itemsForGen(7);
+	abilities = [];
+	STATS = STATS_GSC;
+	calculateAllMoves = CALCULATE_ALL_MOVES_LG;
+	calcHP = CALC_HP_LG;
+	calcStat = CALC_STAT_LG;
+	localStorage.setItem("selectedGen", 22);
 	moves["(nomove)"] = {
 		"accuracy": 100,
 		"basePower": 0,
